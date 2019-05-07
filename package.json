@@ -71,7 +71,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --rule 'import/order: 1' --fix --max-warnings=0",
+      "eslint --rule 'import/order: 1' --ignore-pattern '!.eslintrc.js' --fix --max-warnings=0",
       "git add"
     ]
   },

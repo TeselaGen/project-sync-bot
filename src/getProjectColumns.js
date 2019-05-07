@@ -19,10 +19,10 @@ module.exports = async function getProjectColumns(octokit, repo) {
         project_id: projectForRepo.id
       });
       helper[repo] = {
-        projectId: projectForRepo,
+        projectId: projectForRepo.id,
         columns: columns.data.reduce((acc, column) => {
           acc[column.name] = column.id;
-          acc[column.id] = column.name
+          acc[column.id] = column.name;
           return acc;
         }, {})
       };
