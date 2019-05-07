@@ -1,0 +1,66 @@
+{
+  "name": "github-project-issues",
+  "version": "1.0.0",
+  "description": "A Probot app",
+  "author": "Taoh <tgreen@teselagen.com>",
+  "license": "ISC",
+  "repository": "https://github.com//.git",
+  "homepage": "https://github.com//",
+  "bugs": "https://github.com///issues",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "scripts": {
+    "dev": "nodemon",
+    "start": "probot run ./src/index.js",
+    "lint": "standard --fix",
+    "test": "jest && standard",
+    "labeled-fixture": "probot receive -e issues -p test/fixtures/issues.labeled.json ./src/index.js",
+    "moved-fixture": "probot receive -e project_card -p test/fixtures/project_card.moved.json ./src/index.js",
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage"
+  },
+  "dependencies": {
+    "dot-env": "^0.0.1",
+    "probot": "^7.2.0"
+  },
+  "devDependencies": {
+    "jest": "^24.0.0",
+    "nock": "^10.0.0",
+    "nodemon": "^1.17.2",
+    "smee-client": "^1.0.2",
+    "standard": "^12.0.1",
+    "babel-eslint": "9.x",
+    "eslint": "^5.16.0",
+    "eslint-config-react-app": "^4.0.0",
+    "eslint-config-teselagen": "^4.1.2",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-flowtype": "2.x",
+    "eslint-plugin-graphql": "^3.0.3",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-no-only-tests": "^2.3.0",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "1.6.0"
+  },
+  "engines": {
+    "node": ">= 8.3.0"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "nodemonConfig": {
+    "exec": "npm start",
+    "watch": [
+      ".env",
+      "."
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
