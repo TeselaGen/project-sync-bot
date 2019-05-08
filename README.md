@@ -2,14 +2,16 @@
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
 
+> This probot syncs a github project's card based on status labels of the issue
+
 ## Setup
 
 ```sh
 # Install dependencies
-npm install
+yarn
 
 # Run the bot
-npm start
+yarn start
 ```
 
 ## Contributing
