@@ -9,6 +9,7 @@ const columnNameToLabel = require("../columnNameToLabel");
 module.exports = async function onProjectCardMoved(context) {
   try {
     const octokit = context.github;
+    if (context.isBot) return;
 
     const { project_card, changes } = context.payload;
     if (!changes) return;

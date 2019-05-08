@@ -19,6 +19,8 @@ module.exports = async function onIssueClosed(context) {
 
     const projectCard = await getIssueProjectCard(octokit, issue.html_url);
     if (!projectCard) return;
+    console.info("Moving closed issue to deployed");
+
     await octokit.projects.moveCard({
       card_id: projectCard.databaseId,
       position: "top",

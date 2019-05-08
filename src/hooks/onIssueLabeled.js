@@ -11,6 +11,8 @@ module.exports = async function onIssueLabeled(context) {
     // console.log("context.event:", context.event);
     // console.log("context.payload:", context.payload);
     const { issue, label } = context.payload;
+    if (context.isBot) return;
+
     const octokit = context.github;
     const columnName = labelToColumnName[label.name];
     // if it doesn't correspond to a column ignore the action
@@ -24,6 +26,10 @@ module.exports = async function onIssueLabeled(context) {
 
     const projectCard = await getIssueProjectCard(octokit, issue.html_url);
     if (!projectCard) {
+      console.info(
+        `Creating card for ${issue.html_url} and moving to ${columnName}`
+      );
+
       // make new project card for this issue
       await octokit.projects.createCard({
         column_id: newColumnId,
@@ -31,11 +37,18 @@ module.exports = async function onIssueLabeled(context) {
         content_type: "Issue"
       });
     } else {
-      await octokit.projects.moveCard({
-        card_id: projectCard.databaseId,
-        position: "top",
-        column_id: newColumnId
-      });
+      if (projectCard.column && projectCard.column.databaseId === newColumnId) {
+        console.info(
+          `Ignore move for ${issue.html_url} to ${columnName}, already there.`
+        );
+      } else {
+        console.info(`Moving ${issue.html_url} to ${columnName}`);
+        await octokit.projects.moveCard({
+          card_id: projectCard.databaseId,
+          position: "top",
+          column_id: newColumnId
+        });
+      }
     }
   } catch (error) {
     console.error("error:", error);
