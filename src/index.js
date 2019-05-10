@@ -6,8 +6,14 @@ const onProjectCardMoved = require("./hooks/onProjectCardMoved");
 const onIssueOpened = require("./hooks/onIssueOpened");
 const onIssueClosed = require("./hooks/onIssueClosed");
 const onIssueLabeled = require("./hooks/onIssueLabeled");
+const onPullClosed = require("./hooks/onPullClosed");
 
 module.exports = app => {
+  // debug
+  // app.on(`*`, async context => {
+  //   context.log({ event: context.event, action: context.payload.action })
+  // })
+
   // Your code here
   app.log("Yay, the app was loaded!");
 
@@ -16,6 +22,9 @@ module.exports = app => {
 
   // Handles moving issues to deployed when they are closed
   app.on("issues.closed", onIssueClosed);
+
+  // Handles moving issues to merged when pull request is closed
+  app.on("pull_request.closed", onPullClosed);
 
   // Handles moving the issue's project card based on its labels
   app.on("issues.labeled", onIssueLabeled);

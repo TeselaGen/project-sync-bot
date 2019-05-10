@@ -9,7 +9,10 @@ module.exports = async function onIssueClosed(context) {
   try {
     const octokit = context.github;
     const { repo } = context.issue();
-    const { issue } = context.payload;
+    const { issue, pull_request } = context.payload;
+
+    // event gets triggered for pull request closed as well
+    if (pull_request) return;
     if (!repo || !reposToAutomate.includes(repo)) return;
 
     const columns = await getProjectColumns(octokit, repo);

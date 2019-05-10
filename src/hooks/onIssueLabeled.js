@@ -1,7 +1,7 @@
 const { reposToAutomate } = require("../constants");
 const labelToColumnName = require("../labelToColumnName");
 const getProjectColumns = require("../getProjectColumns");
-const getIssueProjectCard = require("../getIssueProjectCard");
+const moveIssueProjectCard = require("../moveIssueProjectCard");
 
 /*
   Handles moving the issues project card based on its labels
@@ -24,32 +24,10 @@ module.exports = async function onIssueLabeled(context) {
     const columns = await getProjectColumns(octokit, repo);
     const newColumnId = columns[columnName];
 
-    const projectCard = await getIssueProjectCard(octokit, issue.html_url);
-    if (!projectCard) {
-      console.info(
-        `Creating card for ${issue.html_url} and moving to ${columnName}`
-      );
-
-      // make new project card for this issue
-      await octokit.projects.createCard({
-        column_id: newColumnId,
-        content_id: issue.id,
-        content_type: "Issue"
-      });
-    } else {
-      if (projectCard.column && projectCard.column.databaseId === newColumnId) {
-        console.info(
-          `Ignore move for ${issue.html_url} to ${columnName}, already there.`
-        );
-      } else {
-        console.info(`Moving ${issue.html_url} to ${columnName}`);
-        await octokit.projects.moveCard({
-          card_id: projectCard.databaseId,
-          position: "top",
-          column_id: newColumnId
-        });
-      }
-    }
+    await moveIssueProjectCard(octokit, issue, {
+      id: newColumnId,
+      name: columnName
+    });
   } catch (error) {
     console.error("error:", error);
   }

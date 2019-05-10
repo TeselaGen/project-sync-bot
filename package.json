@@ -18,6 +18,7 @@
     "lint": "standard --fix",
     "test": "jest && standard",
     "labeled-fixture": "probot receive -e issues -p test/fixtures/issues.labeled.json ./src/index.js",
+    "pr-merged": "probot receive -e issues -p test/fixtures/pull.closed.merged.json ./src/index.js",
     "moved-fixture": "probot receive -e project_card -p test/fixtures/project_card.moved.json ./src/index.js",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },

@@ -6,7 +6,7 @@ module.exports = async function getIssueProjectCard(octokit, issueUrl) {
       resource(url: $url) {
         ... on Issue {
           databaseId
-          projectCards(first: 10) {
+          projectCards(first: 1) {
             nodes {
               databaseId
               url
