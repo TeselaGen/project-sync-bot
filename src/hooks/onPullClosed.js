@@ -6,6 +6,7 @@ const moveIssueProjectCard = require("../moveIssueProjectCard");
 const getIssuesWithCardByNumber = require("../getIssuesWithCardByNumber");
 const { labels } = require("../constants");
 const updateIssueLabels = require("../updateIssueLabels");
+const columnNameToLabel = require("../columnNameToLabel");
 
 /*
   Handles moving issues to merged when a connecting pull request is closed
@@ -45,6 +46,17 @@ module.exports = async function onPullClosed(context) {
             name: newColumnName
           };
           const existingProjectCard = get(issue, "projectCards.nodes[0]");
+          const oldColumnName = existingProjectCard.column.name;
+          const label = columnNameToLabel[oldColumnName];
+          let labelStatusNumber = (label || "").match(/Status: (\d*\.?\d*)/);
+          if (labelStatusNumber) {
+            labelStatusNumber = parseFloat(labelStatusNumber[1]);
+          }
+
+          // if we are already passed merged to dev then don't move this card
+          // for example, merging a hotfix into release
+          if (labelStatusNumber >= 4) return;
+
           const res = await moveIssueProjectCard(
             octokit,
             issueInfo,
