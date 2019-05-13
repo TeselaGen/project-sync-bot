@@ -14,7 +14,7 @@ module.exports = async function onPullClosed(context) {
   try {
     const octokit = context.github;
     const { pull_request } = context.payload;
-    const { repo } = context.issue();
+    const { repo } = context.repo();
     if (!repo || !reposToAutomate.includes(repo)) return;
     // if it was not merged ignore
     if (!pull_request.merged) return;
@@ -36,23 +36,29 @@ module.exports = async function onPullClosed(context) {
       await Promise.all(
         issues.map(async issue => {
           // move issue project card, will not be labeled because a bot is moving it
+          const issueInfo = {
+            id: issue.databaseId,
+            html_url: issue.url
+          };
+          const columnInfo = {
+            id: projectColumns[newColumnName],
+            name: newColumnName
+          };
+          const existingProjectCard = get(issue, "projectCards.nodes[0]");
           const res = await moveIssueProjectCard(
             octokit,
-            {
-              id: issue.databaseId,
-              html_url: issue.url
-            },
-            {
-              id: projectColumns[newColumnName],
-              name: newColumnName
-            },
-            get(issue, "projectCards.nodes[0]")
+            issueInfo,
+            columnInfo,
+            existingProjectCard
           );
 
           // handle updating issue labels
           if (res) {
             const { oldColumnId, newColumnId } = res;
-            await updateIssueLabels(octokit, repo, issue.number, {
+            await updateIssueLabels({
+              octokit,
+              repo,
+              issueNumber: issue.number,
               oldColumnId,
               newColumnId
             });

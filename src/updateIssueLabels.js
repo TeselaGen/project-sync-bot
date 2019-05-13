@@ -2,12 +2,13 @@ const getProjectColumns = require("./getProjectColumns");
 const columnNameToLabel = require("./columnNameToLabel");
 const { owner } = require("./constants");
 
-module.exports = async function updateIssueLabels(
+module.exports = async function updateIssueLabels({
   octokit,
   repo,
   issueNumber,
-  { oldColumnId, newColumnId }
-) {
+  oldColumnId,
+  newColumnId
+}) {
   const projectColumns = await getProjectColumns(octokit, repo);
   const oldLabel = columnNameToLabel[projectColumns[oldColumnId]];
   const newLabel = columnNameToLabel[projectColumns[newColumnId]];
@@ -19,7 +20,6 @@ module.exports = async function updateIssueLabels(
       octokit.issues.removeLabel({
         owner,
         repo,
-        issue_number: issueNumber,
         number: issueNumber,
         name: oldLabel
       })
@@ -31,7 +31,6 @@ module.exports = async function updateIssueLabels(
       octokit.issues.addLabels({
         owner,
         repo,
-        issue_number: issueNumber,
         number: issueNumber,
         labels: [newLabel]
       })
@@ -44,7 +43,6 @@ module.exports = async function updateIssueLabels(
       octokit.issues.update({
         owner,
         repo,
-        issue_number: issueNumber,
         number: issueNumber,
         state: "closed"
       })

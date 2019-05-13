@@ -18,7 +18,10 @@ module.exports = async function onProjectCardMoved(context) {
     const oldColumnId = changes.column_id.from;
     const newColumnId = project_card.column_id;
 
-    await updateIssueLabels(octokit, repo, issueNumber, {
+    await updateIssueLabels({
+      octokit,
+      repo,
+      issueNumber,
       oldColumnId,
       newColumnId
     });

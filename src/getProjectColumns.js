@@ -5,14 +5,15 @@
  */
 
 const helper = require("./helper");
+const { owner } = require("./constants");
 
 module.exports = async function getProjectColumns(octokit, repo) {
   if (!helper[repo]) {
     const projects = await octokit.projects.listForOrg({
-      org: "teselagen"
+      org: owner
     });
     const projectForRepo = projects.data.find(
-      p => p.name.toLowerCase() === `teselagen/${repo}`
+      p => p.name.toLowerCase() === `${owner}/${repo}`.toLowerCase()
     );
     if (projectForRepo) {
       const columns = await octokit.projects.listColumns({

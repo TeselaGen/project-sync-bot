@@ -1,18 +1,18 @@
 {
   "action": "closed",
-  "number": 23,
+  "number": 29,
   "pull_request": {
-    "url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/23",
-    "id": 277595629,
-    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjc3NTk1NjI5",
-    "html_url": "https://github.com/TeselaGen/test-project-issues-bot/pull/23",
-    "diff_url": "https://github.com/TeselaGen/test-project-issues-bot/pull/23.diff",
-    "patch_url": "https://github.com/TeselaGen/test-project-issues-bot/pull/23.patch",
-    "issue_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/issues/23",
-    "number": 23,
+    "url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/29",
+    "id": 277598609,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjc3NTk4NjA5",
+    "html_url": "https://github.com/TeselaGen/test-project-issues-bot/pull/29",
+    "diff_url": "https://github.com/TeselaGen/test-project-issues-bot/pull/29.diff",
+    "patch_url": "https://github.com/TeselaGen/test-project-issues-bot/pull/29.patch",
+    "issue_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/issues/29",
+    "number": 29,
     "state": "closed",
     "locked": false,
-    "title": "Test merge ",
+    "title": "wip",
     "user": {
       "login": "tgreen7",
       "id": 10415101,
@@ -33,27 +33,27 @@
       "type": "User",
       "site_admin": false
     },
-    "body": "connects #18 \r\nconnects #16 ",
-    "created_at": "2019-05-10T00:43:53Z",
-    "updated_at": "2019-05-10T00:44:01Z",
-    "closed_at": "2019-05-10T00:44:01Z",
-    "merged_at": "2019-05-10T00:44:01Z",
-    "merge_commit_sha": "07f3ece59cffa3703f8cbc8706841dde2db90d29",
+    "body": "connects #19 \r\nconnects #20 ",
+    "created_at": "2019-05-10T01:06:09Z",
+    "updated_at": "2019-05-10T01:06:18Z",
+    "closed_at": "2019-05-10T01:06:18Z",
+    "merged_at": "2019-05-10T01:06:18Z",
+    "merge_commit_sha": "993ab81629a1df95dc6039e25942bb5a13890a56",
     "assignee": null,
     "assignees": [],
     "requested_reviewers": [],
     "requested_teams": [],
     "labels": [],
     "milestone": null,
-    "commits_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/23/commits",
-    "review_comments_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/23/comments",
+    "commits_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/29/commits",
+    "review_comments_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/29/comments",
     "review_comment_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/comments{/number}",
-    "comments_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/issues/23/comments",
-    "statuses_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/statuses/8573e055585208ea4eadc27f850b437515fd8011",
+    "comments_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/issues/29/comments",
+    "statuses_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/statuses/df44cd1e9fe208e991cf23fc981d860142eb3a10",
     "head": {
-      "label": "TeselaGen:tg-testBranch2",
-      "ref": "tg-testBranch2",
-      "sha": "8573e055585208ea4eadc27f850b437515fd8011",
+      "label": "TeselaGen:t12",
+      "ref": "t12",
+      "sha": "df44cd1e9fe208e991cf23fc981d860142eb3a10",
       "user": {
         "login": "TeselaGen",
         "id": 1185304,
@@ -141,8 +141,8 @@
         "releases_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/releases{/id}",
         "deployments_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/deployments",
         "created_at": "2019-05-07T01:37:42Z",
-        "updated_at": "2019-05-10T00:24:41Z",
-        "pushed_at": "2019-05-10T00:44:01Z",
+        "updated_at": "2019-05-10T01:01:14Z",
+        "pushed_at": "2019-05-10T01:06:18Z",
         "git_url": "git://github.com/TeselaGen/test-project-issues-bot.git",
         "ssh_url": "git@github.com:TeselaGen/test-project-issues-bot.git",
         "clone_url": "https://github.com/TeselaGen/test-project-issues-bot.git",
@@ -151,7 +151,7 @@
         "size": 1,
         "stargazers_count": 0,
         "watchers_count": 0,
-        "language": null,
+        "language": "JavaScript",
         "has_issues": true,
         "has_projects": true,
         "has_downloads": true,
@@ -172,7 +172,7 @@
     "base": {
       "label": "TeselaGen:master",
       "ref": "master",
-      "sha": "645398e4c7673ecfbc974f4a42d3e6c3f20c76f5",
+      "sha": "6f20bc39df7eabf76002006034744d152fe9853a",
       "user": {
         "login": "TeselaGen",
         "id": 1185304,
@@ -260,8 +260,8 @@
         "releases_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/releases{/id}",
         "deployments_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/deployments",
         "created_at": "2019-05-07T01:37:42Z",
-        "updated_at": "2019-05-10T00:24:41Z",
-        "pushed_at": "2019-05-10T00:44:01Z",
+        "updated_at": "2019-05-10T01:01:14Z",
+        "pushed_at": "2019-05-10T01:06:18Z",
         "git_url": "git://github.com/TeselaGen/test-project-issues-bot.git",
         "ssh_url": "git@github.com:TeselaGen/test-project-issues-bot.git",
         "clone_url": "https://github.com/TeselaGen/test-project-issues-bot.git",
@@ -270,7 +270,7 @@
         "size": 1,
         "stargazers_count": 0,
         "watchers_count": 0,
-        "language": null,
+        "language": "JavaScript",
         "has_issues": true,
         "has_projects": true,
         "has_downloads": true,
@@ -290,28 +290,28 @@
     },
     "_links": {
       "self": {
-        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/23"
+        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/29"
       },
       "html": {
-        "href": "https://github.com/TeselaGen/test-project-issues-bot/pull/23"
+        "href": "https://github.com/TeselaGen/test-project-issues-bot/pull/29"
       },
       "issue": {
-        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/issues/23"
+        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/issues/29"
       },
       "comments": {
-        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/issues/23/comments"
+        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/issues/29/comments"
       },
       "review_comments": {
-        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/23/comments"
+        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/29/comments"
       },
       "review_comment": {
         "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/comments{/number}"
       },
       "commits": {
-        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/23/commits"
+        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/pulls/29/commits"
       },
       "statuses": {
-        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/statuses/8573e055585208ea4eadc27f850b437515fd8011"
+        "href": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/statuses/df44cd1e9fe208e991cf23fc981d860142eb3a10"
       }
     },
     "author_association": "CONTRIBUTOR",
@@ -344,9 +344,9 @@
     "review_comments": 0,
     "maintainer_can_modify": false,
     "commits": 1,
-    "additions": 2,
+    "additions": 1,
     "deletions": 1,
-    "changed_files": 2
+    "changed_files": 1
   },
   "repository": {
     "id": 185298819,
@@ -415,8 +415,8 @@
     "releases_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/releases{/id}",
     "deployments_url": "https://api.github.com/repos/TeselaGen/test-project-issues-bot/deployments",
     "created_at": "2019-05-07T01:37:42Z",
-    "updated_at": "2019-05-10T00:24:41Z",
-    "pushed_at": "2019-05-10T00:44:01Z",
+    "updated_at": "2019-05-10T01:01:14Z",
+    "pushed_at": "2019-05-10T01:06:18Z",
     "git_url": "git://github.com/TeselaGen/test-project-issues-bot.git",
     "ssh_url": "git@github.com:TeselaGen/test-project-issues-bot.git",
     "clone_url": "https://github.com/TeselaGen/test-project-issues-bot.git",
@@ -425,7 +425,7 @@
     "size": 1,
     "stargazers_count": 0,
     "watchers_count": 0,
-    "language": null,
+    "language": "JavaScript",
     "has_issues": true,
     "has_projects": true,
     "has_downloads": true,
