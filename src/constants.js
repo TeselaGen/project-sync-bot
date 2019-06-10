@@ -7,9 +7,10 @@ module.exports = {
   owner: "TeselaGen",
   reposToAutomate,
   labels: {
-    mergedDev: "Status: 4-Merged/Pushed to Dev"
+    mergedDev: "WB: 7 - Merged"
   },
   columns: {
+    triage: "Needs Triage",
     backlog: "Backlog"
   }
 };

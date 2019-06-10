@@ -14,15 +14,15 @@ module.exports = async function onIssueOpened(context) {
     if (!repo || !reposToAutomate.includes(repo)) return;
 
     const projectColumns = await getProjectColumns(octokit, repo);
-    const backlogId = projectColumns[columns.backlog];
+    const triageId = projectColumns[columns.triage];
     const columnLabel = issue.labels.find(
       label => labelToColumnName[label.name]
     );
     // if there is a column specific label the issues.labeled hook will handle the placement
-    if (!backlogId || columnLabel) return;
-    console.info("Moving new issue to backlog");
+    if (!triageId || columnLabel) return;
+    console.info("Moving new issue to triage");
     await octokit.projects.createCard({
-      column_id: backlogId,
+      column_id: triageId,
       content_id: issue.id,
       content_type: "Issue"
     });
