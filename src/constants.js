@@ -6,6 +6,7 @@ const reposToAutomate = process.env.REPOS_TO_AUTOMATE
 module.exports = {
   owner: "TeselaGen",
   reposToAutomate,
+  mergedDevStatusNum: 7,
   labels: {
     mergedDev: "WB: 7 - Merged"
   },

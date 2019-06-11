@@ -4,7 +4,7 @@ const labelToColumnName = require("../labelToColumnName");
 const getProjectColumns = require("../getProjectColumns");
 const moveIssueProjectCard = require("../moveIssueProjectCard");
 const getIssuesWithCardByNumber = require("../getIssuesWithCardByNumber");
-const { labels } = require("../constants");
+const { labels, mergedDevStatusNum } = require("../constants");
 const updateIssueLabels = require("../updateIssueLabels");
 const columnNameToLabel = require("../columnNameToLabel");
 
@@ -55,7 +55,7 @@ module.exports = async function onPullClosed(context) {
 
           // if we are already passed merged to dev then don't move this card
           // for example, merging a hotfix into release
-          if (labelStatusNumber >= 4) return;
+          if (labelStatusNumber >= mergedDevStatusNum) return;
 
           const res = await moveIssueProjectCard(
             octokit,
