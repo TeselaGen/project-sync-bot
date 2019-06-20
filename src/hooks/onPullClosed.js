@@ -19,7 +19,9 @@ module.exports = async function onPullClosed(context) {
     if (!repo || !reposToAutomate.includes(repo)) return;
     // if it was not merged ignore
     if (!pull_request.merged) return;
-    const connectedIssues = (pull_request.body || "").match(/connects #(\d*)/g);
+    const connectedIssues = (pull_request.body || "").match(
+      /connects #(\d*)/gi
+    );
     const baseBranch = pull_request.base.ref;
 
     if (baseBranch === "master" && connectedIssues) {
