@@ -26,7 +26,7 @@ module.exports = async function onPullClosed(context) {
 
     if (baseBranch === "master" && connectedIssues) {
       const issueNumbers = connectedIssues.map(issueString =>
-        issueString.replace("connects #", "")
+        issueString.toLowerCase().replace("connects #", "")
       );
 
       const issues = await getIssuesWithCardByNumber(
