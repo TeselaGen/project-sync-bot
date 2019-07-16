@@ -48,16 +48,19 @@ module.exports = async function onPullClosed(context) {
             name: newColumnName
           };
           const existingProjectCard = get(issue, "projectCards.nodes[0]");
-          const oldColumnName = existingProjectCard.column.name;
-          const label = columnNameToLabel[oldColumnName];
-          let labelStatusNumber = (label || "").match(/Status: (\d*\.?\d*)/);
-          if (labelStatusNumber) {
-            labelStatusNumber = parseFloat(labelStatusNumber[1]);
-          }
 
-          // if we are already passed merged to dev then don't move this card
-          // for example, merging a hotfix into release
-          if (labelStatusNumber >= mergedDevStatusNum) return;
+          if (existingProjectCard) {
+            const oldColumnName = existingProjectCard.column.name;
+            const label = columnNameToLabel[oldColumnName];
+            let labelStatusNumber = (label || "").match(/Status: (\d*\.?\d*)/);
+            if (labelStatusNumber) {
+              labelStatusNumber = parseFloat(labelStatusNumber[1]);
+            }
+
+            // if we are already passed merged to dev then don't move this card
+            // for example, merging a hotfix into release
+            if (labelStatusNumber >= mergedDevStatusNum) return;
+          }
 
           const res = await moveIssueProjectCard(
             octokit,
