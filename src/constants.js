@@ -6,12 +6,15 @@ const reposToAutomate = process.env.REPOS_TO_AUTOMATE
 module.exports = {
   owner: "TeselaGen",
   reposToAutomate,
+  inProgressStatusNum: 5,
   mergedDevStatusNum: 7,
   labels: {
+    inProgress: "WB: 5 - In Progress",
     mergedDev: "WB: 7 - Merged"
   },
   columns: {
     triage: "Needs Triage",
-    backlog: "Backlog"
+    backlog: "Backlog",
+    deployed: "Deployed"
   }
 };

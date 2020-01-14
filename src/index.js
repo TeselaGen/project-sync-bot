@@ -7,6 +7,7 @@ const onProjectCardMoved = require("./hooks/onProjectCardMoved");
 // const onIssueClosed = require("./hooks/onIssueClosed");
 const onIssueLabeled = require("./hooks/onIssueLabeled");
 const onPullClosed = require("./hooks/onPullClosed");
+const onPullOpened = require("./hooks/onPullOpened");
 
 module.exports = app => {
   // debug
@@ -22,6 +23,9 @@ module.exports = app => {
 
   // Handles moving issues to deployed when they are closed
   // app.on("issues.closed", onIssueClosed);
+
+  // Handles moving issues to merged when pull request is opened
+  app.on("pull_request.opened", onPullOpened);
 
   // Handles moving issues to merged when pull request is closed
   app.on("pull_request.closed", onPullClosed);

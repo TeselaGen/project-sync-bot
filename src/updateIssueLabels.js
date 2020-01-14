@@ -1,6 +1,6 @@
 const getProjectColumns = require("./getProjectColumns");
 const columnNameToLabel = require("./columnNameToLabel");
-const { owner } = require("./constants");
+const { owner, columns } = require("./constants");
 
 module.exports = async function updateIssueLabels({
   octokit,
@@ -38,7 +38,7 @@ module.exports = async function updateIssueLabels({
   }
 
   // if we are moving into deployed column then close the issue
-  if (projectColumns[newColumnId] === "Deployed") {
+  if (projectColumns[newColumnId] === columns.deployed) {
     promises.push(
       octokit.issues.update({
         owner,

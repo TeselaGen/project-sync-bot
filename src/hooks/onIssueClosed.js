@@ -1,4 +1,4 @@
-const { reposToAutomate } = require("../constants");
+const { reposToAutomate, columns } = require("../constants");
 const getProjectColumns = require("../getProjectColumns");
 const getIssueProjectCard = require("../getIssueProjectCard");
 
@@ -15,8 +15,8 @@ module.exports = async function onIssueClosed(context) {
     if (pull_request) return;
     if (!repo || !reposToAutomate.includes(repo)) return;
 
-    const columns = await getProjectColumns(octokit, repo);
-    const deployedId = columns["Deployed"];
+    const projectColumns = await getProjectColumns(octokit, repo);
+    const deployedId = projectColumns[columns.deployed];
     // if there is a column specific label the issues.labeled hook will handle the placement
     if (!deployedId) return;
 
